@@ -86,30 +86,35 @@ Logic gates are the basic building blocks of digital systems. NAND and NOR are u
 
 ## Simulation Procedure
 #### STEP 1 – Open Terminal
+```
 Open a terminal in the experiment folder.
 bash
-
+```
 #### STEP 2 – Load Synopsys Environment
+```
 source /synopsys/start.sh
-
+```
 #### STEP 3 – Compile Using VCS
+```
 vcs logic_gates.v logic_gates_tb.v -full64
 If compilation is successful, VCS generates the simulation executable:
 simv
-
+```
 #### STEP 4 – Run Simulation
-./simv
+```./simv
 The terminal displays the input combinations and corresponding output F.
 A VCD waveform file is also generated:
 exp1_boolean_min.vcd
-
+```
 #### STEP 5 – Open DVE
+```
 dve -full64
 Other option
 dve -full64 &
 A DVE environment will open.
-
+```
 ## DVE Waveform Verification
+```
 In DVE:
 Open the testbench hierarchy.
 Locate the signals: 
@@ -124,7 +129,7 @@ Verify that y_and = 1 only when a=1 AND b=1 — the single combination where bot
 Verify that y_or = 1 whenever a=1 OR b=1 (any input high forces the output high).
 Verify that y_not is always the exact complement of a, regardless of b.
 The waveform should agree with the truth table.
-
+```
 ## Expected Result
 The basic logic gates — AND, OR, and NOT — were realized using Verilog HDL:
 Y_AND = A.B
